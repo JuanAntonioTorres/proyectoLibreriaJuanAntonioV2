@@ -36,7 +36,7 @@ public class ListenerGuardar implements ActionListener{
 
 
 	private void reestablecerLibroOriginal(Libro libroOriginal) {
-		logica.getLibros()[logicaGrafica.getLibroSeleccionado()]=libroOriginal;
+		logica.getLibros().add(logicaGrafica.getLibroSeleccionado(), libroOriginal);
 	}
 
 
@@ -54,13 +54,13 @@ public class ListenerGuardar implements ActionListener{
 
 
 	private void sacarLibroDeLibros() {
-		logica.getLibros()[logicaGrafica.getLibroSeleccionado()]=null;
+		logica.getLibros().remove(logicaGrafica.getLibroSeleccionado());
 	}
 
 
 
 	private Libro obtenerLibroSeleccionado() {
-		return logica.getLibros()[logicaGrafica.getLibroSeleccionado()];
+		return logica.getLibros().get(logicaGrafica.getLibroSeleccionado());
 	}
 
 }

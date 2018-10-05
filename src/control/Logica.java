@@ -1,12 +1,14 @@
 package control;
+import java.util.ArrayList;
+
 import modelo.Libro;
 
 public class Logica {
-	private Libro [] libros;
+	private ArrayList<Libro> libros;
 	
 	public Logica() {
 		super();
-		this.libros = new Libro[0];
+		this.libros = new ArrayList<>();
 	}
 	
 	
@@ -19,12 +21,7 @@ public class Logica {
 	 * @param libro
 	 */
 	public void altaLibro(Libro libro) {
-		Libro [] librosAux = new Libro [libros.length+1]; 
-		for (int i = 0; i < libros.length; i++) {
-			librosAux[i] = libros[i];
-		}
-		librosAux[librosAux.length-1] = libro;
-		this.libros = librosAux;
+		libros.add(libro);
 	}
 
 	/**
@@ -42,15 +39,10 @@ public class Logica {
 	 * @param selectedIndex posicion del libro que se quiere borrar
 	 */
 	public void borrarLibro(int selectedIndex) {
-		Libro [] librosAux  = new Libro [libros.length-1]; 
-		for (int i = 0,j = 0; i < libros.length; i++, j++) {
-			if(i<selectedIndex)librosAux[j] = libros[i];
-			else if(i>selectedIndex)librosAux[j-1]= libros[i];
-		}
-		libros = librosAux;
+		libros.remove(selectedIndex);
 	}
 
-	public Libro[] getLibros() {
+	public ArrayList<Libro> getLibros() {
 		return libros;
 	}
 
@@ -58,7 +50,7 @@ public class Logica {
 	public boolean modificarLibro(Libro original,Libro modificado,int posicion) {
 		boolean retorno;
 		if(!original.esIgualQue(modificado)){
-			libros[posicion] = modificado; 
+			libros.add(posicion, modificado);
 			retorno = true;
 		}
 		else retorno = false;

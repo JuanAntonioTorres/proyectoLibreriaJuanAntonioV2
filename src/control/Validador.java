@@ -1,12 +1,14 @@
 package control;
+import java.util.ArrayList;
+
 import modelo.Libro;
 
 public class Validador {
 	
-	public boolean validarISBN(String ISBN,Libro libros []) {
+	public boolean validarISBN(String ISBN,ArrayList<Libro> arrayList) {
 		boolean retorno = true;
-		for (int i = 0; i < libros.length; i++) {
-			if(libros[i]!=null &&libros[i].getISBN().equals(ISBN))retorno=false;
+		for (int i = 0; i < arrayList.size(); i++) {
+			if(arrayList.get(i)!=null &&arrayList.get(i).getISBN().equals(ISBN))retorno=false;
 		}
 		return retorno;
 	}

@@ -1,6 +1,7 @@
 package vista;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -38,14 +39,14 @@ public class LogicaGrafica{
 	/**
 	 * limpia el contenido de la lista y lo rellena con 
 	 * el titulo del array de libros pasado por parametro
-	 * @param libros array de libros que queremos mostrar en la lista
+	 * @param arrayList array de libros que queremos mostrar en la lista
 	 */
 	
-	public void pintarLista(Libro [] libros ) {
+	public void pintarLista(ArrayList<Libro> arrayList ) {
 		vistaPrincipal.librosDisponibles.removeAll();
 		DefaultListModel<String>modeloLista=new DefaultListModel<>();
-		for (int i = 0; i < libros.length; i++) {
-			modeloLista.addElement(libros[i].getTitulo());
+		for (int i = 0; i < arrayList.size(); i++) {
+			modeloLista.addElement(arrayList.get(i).getTitulo());
 		}
 		vistaPrincipal.librosDisponibles.setModel(modeloLista);
 	}
@@ -57,7 +58,7 @@ public class LogicaGrafica{
 	 * @param modificando 
 	 * @return libro si ISBN bien// null si ISBN mal
 	 */
-	public Libro crearLibro(Libro [] libros) {
+	public Libro crearLibro(ArrayList<Libro> arrayList) {
 		PanelDatos panelDatos = vistaPrincipal.panelDatos;
 		String titulo = panelDatos .getTxtTitulo().getText();
 		String autor = panelDatos.getTxtAutor().getText();
@@ -66,7 +67,7 @@ public class LogicaGrafica{
 		String[] formato = obtenerFormatos();
 		String estado = obtenerEstados();
 		String isbn = panelDatos.getTxtISBN().getText();
-		if(validador.validarISBN(isbn,libros)) {
+		if(validador.validarISBN(isbn,arrayList)) {
 			return new Libro(titulo, autor, tema, numPaginas, formato, estado , isbn);
 		}
 		else return null;

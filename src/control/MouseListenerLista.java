@@ -17,7 +17,7 @@ public class MouseListenerLista implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		logicaGrafica.pintarLibro(logica.getLibros()[logicaGrafica.getLibroSeleccionado()]);
+		logicaGrafica.pintarLibro(logica.getLibros().get((logicaGrafica.getLibroSeleccionado())));
 		logicaGrafica.activarBoton("Baja", true);
 		logicaGrafica.activarPanelesInformacion(false);
 		logicaGrafica.cambiarListenerBoton("Alta",new ListenerBotonModificar(logica, logicaGrafica));
