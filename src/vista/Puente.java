@@ -3,6 +3,8 @@ package vista;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import control.ListenerBotonAlta;
 import control.ListenerBotonBaja;

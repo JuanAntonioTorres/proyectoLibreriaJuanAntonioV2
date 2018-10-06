@@ -71,7 +71,7 @@ public class PanelBotones extends JPanel{
 		btnSalir.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//TODO fin programa
+				System.exit(ABORT);
 			}
 		});
 		btnSalir.setMaximumSize(new Dimension(122, 33));

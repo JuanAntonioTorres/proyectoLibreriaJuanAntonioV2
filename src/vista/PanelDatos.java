@@ -19,16 +19,17 @@ public class PanelDatos extends JPanel{
 	private JTextField txtTitulo;
 	private JComboBox<String> cmbTemas;
 	private JTextField txtISBN;
+	private JTextField txtUnidades;
 	
 	
 	public PanelDatos() {
-		setMaximumSize(new Dimension(455, 700));
-		setMinimumSize(new Dimension(250, 280));
+		setMaximumSize(new Dimension(400, 550));
+		setMinimumSize(new Dimension(120, 320));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{134, 151, 70, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 13, 0, 18, 14, 24, 40, 30, 27, 33, 0};
+		gridBagLayout.rowHeights = new int[] {0, 22, 12, 22, 22, 22, 22, 22, 22, 22, 22, 22,0};
 		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
 		setLayout(gridBagLayout);
 		
 		JLabel lblTtulo = new JLabel("T\u00EDtulo");
@@ -123,6 +124,7 @@ public class PanelDatos extends JPanel{
 		add(lblNumPaginas, gbclblNumPaginas);
 		
 		txtNumPaginas = new JTextField();
+		txtNumPaginas.setName("txtNumPaginas");
 		txtNumPaginas.setMaximumSize(new Dimension(125, 35));
 		txtNumPaginas.setMinimumSize(new Dimension(45, 25));
 		txtNumPaginas.setToolTipText("Introduce las P\u00E1ginas Solo numeros Ej 123");
@@ -135,10 +137,11 @@ public class PanelDatos extends JPanel{
 		gbc_txtNumPaginas.gridy = 7;
 		add(txtNumPaginas, gbc_txtNumPaginas);
 		
-		JLabel lblLib = new JLabel("LIB");
+		JLabel lblLib = new JLabel("ISBN");
+		lblLib.setMaximumSize(new Dimension(125, 35));
 		lblLib.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLib.setMinimumSize(new Dimension(125, 35));
-		lblLib.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblLib.setMinimumSize(new Dimension(45, 25));
+		lblLib.setFont(new Font("Dialog", Font.BOLD, 12));
 		GridBagConstraints gbc_lblLib = new GridBagConstraints();
 		gbc_lblLib.fill = GridBagConstraints.BOTH;
 		gbc_lblLib.insets = new Insets(0, 0, 5, 5);
@@ -147,6 +150,7 @@ public class PanelDatos extends JPanel{
 		add(lblLib, gbc_lblLib);
 		
 		txtISBN = new JTextField();
+		txtISBN.setName("txtIsbn");
 		txtISBN.setToolTipText("numero identificacion 13 digitos Ej 1234567890123");
 		txtISBN.setMinimumSize(new Dimension(45, 25));
 		txtISBN.setMaximumSize(new Dimension(125, 35));
@@ -158,6 +162,33 @@ public class PanelDatos extends JPanel{
 		gbc_txtLib.gridx = 1;
 		gbc_txtLib.gridy = 9;
 		add(txtISBN, gbc_txtLib);
+		
+		JLabel lblUnidades = new JLabel("Unidades");
+		lblUnidades.setMaximumSize(new Dimension(125, 35));
+		lblUnidades.setMinimumSize(new Dimension(45, 25));
+		lblUnidades.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUnidades.setFont(new Font("Dialog", Font.BOLD, 12));
+		GridBagConstraints gbc_lblUnidades = new GridBagConstraints();
+		gbc_lblUnidades.fill = GridBagConstraints.BOTH;
+		gbc_lblUnidades.insets = new Insets(0, 0, 5, 5);
+		gbc_lblUnidades.gridx = 0;
+		gbc_lblUnidades.gridy = 11;
+		add(lblUnidades, gbc_lblUnidades);
+		
+		txtUnidades = new JTextField();
+		txtUnidades.setName("unidades");
+		txtUnidades.setText("1");
+		txtUnidades.setToolTipText("numero identificacion 13 digitos Ej 1234567890123");
+		txtUnidades.setMinimumSize(new Dimension(45, 25));
+		txtUnidades.setMaximumSize(new Dimension(125, 35));
+		txtUnidades.setFont(new Font("Dialog", Font.BOLD, 11));
+		txtUnidades.setColumns(10);
+		GridBagConstraints gbc_txtUnidades = new GridBagConstraints();
+		gbc_txtUnidades.insets = new Insets(0, 0, 5, 5);
+		gbc_txtUnidades.fill = GridBagConstraints.BOTH;
+		gbc_txtUnidades.gridx = 1;
+		gbc_txtUnidades.gridy = 11;
+		add(txtUnidades, gbc_txtUnidades);
 	}
 
 	
@@ -181,6 +212,10 @@ public class PanelDatos extends JPanel{
 
 	public JComboBox<String> getCmbTemas() {
 		return cmbTemas;
+	}
+
+	public JTextField getTxtUnidades() {
+		return txtUnidades;
 	}
 	
 }
