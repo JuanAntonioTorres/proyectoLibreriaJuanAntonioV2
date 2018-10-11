@@ -11,6 +11,8 @@ import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Dimension;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 public class PanelDatos extends JPanel{
 	private static final long serialVersionUID = 1L;
@@ -18,8 +20,8 @@ public class PanelDatos extends JPanel{
 	private JTextField txtNumPaginas;
 	private JTextField txtTitulo;
 	private JComboBox<String> cmbTemas;
-	private JTextField txtISBN;
-	private JTextField txtUnidades;
+	private JTextFieldIsbn txtISBN;
+	private JSpinner spnUnidades;
 	
 	
 	public PanelDatos() {
@@ -27,10 +29,36 @@ public class PanelDatos extends JPanel{
 		setMinimumSize(new Dimension(120, 320));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{134, 151, 70, 0};
-		gridBagLayout.rowHeights = new int[] {0, 22, 12, 22, 22, 22, 22, 22, 22, 22, 22, 22,0};
+		gridBagLayout.rowHeights = new int[] {0, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22,0};
 		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
 		setLayout(gridBagLayout);
+		
+		JLabel lblLib = new JLabel("ISBN");
+		lblLib.setMaximumSize(new Dimension(125, 35));
+		lblLib.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLib.setMinimumSize(new Dimension(45, 25));
+		lblLib.setFont(new Font("Dialog", Font.BOLD, 12));
+		GridBagConstraints gbc_lblLib = new GridBagConstraints();
+		gbc_lblLib.fill = GridBagConstraints.BOTH;
+		gbc_lblLib.insets = new Insets(0, 0, 5, 5);
+		gbc_lblLib.gridx = 0;
+		gbc_lblLib.gridy = 1;
+		add(lblLib, gbc_lblLib);
+		
+		txtISBN = new JTextFieldIsbn();
+		txtISBN.setName("txtIsbn");
+		txtISBN.setToolTipText("numero identificacion 13 digitos Ej 1234567890123");
+		txtISBN.setMinimumSize(new Dimension(45, 25));
+		txtISBN.setMaximumSize(new Dimension(125, 35));
+		txtISBN.setFont(new Font("Dialog", Font.BOLD, 11));
+		txtISBN.setColumns(10);
+		GridBagConstraints gbc_txtLib = new GridBagConstraints();
+		gbc_txtLib.insets = new Insets(0, 0, 5, 5);
+		gbc_txtLib.fill = GridBagConstraints.BOTH;
+		gbc_txtLib.gridx = 1;
+		gbc_txtLib.gridy = 1;
+		add(txtISBN, gbc_txtLib);
 		
 		JLabel lblTtulo = new JLabel("T\u00EDtulo");
 		lblTtulo.setMaximumSize(new Dimension(122, 33));
@@ -42,7 +70,7 @@ public class PanelDatos extends JPanel{
 		gbclblTtulo.insets = new Insets(0, 0, 5, 5);
 		gbclblTtulo.fill = GridBagConstraints.BOTH;
 		gbclblTtulo.gridx = 0;
-		gbclblTtulo.gridy = 1;
+		gbclblTtulo.gridy = 3;
 		add(lblTtulo, gbclblTtulo);
 		
 		txtTitulo = new JTextField();
@@ -56,7 +84,7 @@ public class PanelDatos extends JPanel{
 		gbc_txtTitulo.insets = new Insets(0, 0, 5, 5);
 		gbc_txtTitulo.fill = GridBagConstraints.BOTH;
 		gbc_txtTitulo.gridx = 1;
-		gbc_txtTitulo.gridy = 1;
+		gbc_txtTitulo.gridy = 3;
 		add(txtTitulo, gbc_txtTitulo);
 		
 		JLabel lblAutorLibro = new JLabel("Autor");
@@ -68,7 +96,7 @@ public class PanelDatos extends JPanel{
 		gbclblAutorLibro.fill = GridBagConstraints.BOTH;
 		gbclblAutorLibro.insets = new Insets(0, 0, 5, 5);
 		gbclblAutorLibro.gridx = 0;
-		gbclblAutorLibro.gridy = 3;
+		gbclblAutorLibro.gridy = 5;
 		add(lblAutorLibro, gbclblAutorLibro);
 		
 		txtAutor = new JTextField();
@@ -81,7 +109,7 @@ public class PanelDatos extends JPanel{
 		gbctxtAutor.insets = new Insets(0, 0, 5, 5);
 		gbctxtAutor.fill = GridBagConstraints.BOTH;
 		gbctxtAutor.gridx = 1;
-		gbctxtAutor.gridy = 3;
+		gbctxtAutor.gridy = 5;
 		add(txtAutor, gbctxtAutor);
 		
 		JLabel lblTemaLibro = new JLabel("Tema");
@@ -93,7 +121,7 @@ public class PanelDatos extends JPanel{
 		gbclblTemaLibro.fill = GridBagConstraints.BOTH;
 		gbclblTemaLibro.insets = new Insets(0, 0, 5, 5);
 		gbclblTemaLibro.gridx = 0;
-		gbclblTemaLibro.gridy = 5;
+		gbclblTemaLibro.gridy = 7;
 		add(lblTemaLibro, gbclblTemaLibro);
 		
 		cmbTemas = new JComboBox<>();
@@ -108,7 +136,7 @@ public class PanelDatos extends JPanel{
 		gbccmbTemas.insets = new Insets(0, 0, 5, 5);
 		gbccmbTemas.fill = GridBagConstraints.BOTH;
 		gbccmbTemas.gridx = 1;
-		gbccmbTemas.gridy = 5;
+		gbccmbTemas.gridy = 7;
 		add(cmbTemas, gbccmbTemas);
 		
 		JLabel lblNumPaginas = new JLabel("Num.Pag");
@@ -120,7 +148,7 @@ public class PanelDatos extends JPanel{
 		gbclblNumPaginas.fill = GridBagConstraints.BOTH;
 		gbclblNumPaginas.insets = new Insets(0, 0, 5, 5);
 		gbclblNumPaginas.gridx = 0;
-		gbclblNumPaginas.gridy = 7;
+		gbclblNumPaginas.gridy = 9;
 		add(lblNumPaginas, gbclblNumPaginas);
 		
 		txtNumPaginas = new JTextField();
@@ -134,34 +162,8 @@ public class PanelDatos extends JPanel{
 		gbc_txtNumPaginas.insets = new Insets(0, 0, 5, 5);
 		gbc_txtNumPaginas.fill = GridBagConstraints.BOTH;
 		gbc_txtNumPaginas.gridx = 1;
-		gbc_txtNumPaginas.gridy = 7;
+		gbc_txtNumPaginas.gridy = 9;
 		add(txtNumPaginas, gbc_txtNumPaginas);
-		
-		JLabel lblLib = new JLabel("ISBN");
-		lblLib.setMaximumSize(new Dimension(125, 35));
-		lblLib.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLib.setMinimumSize(new Dimension(45, 25));
-		lblLib.setFont(new Font("Dialog", Font.BOLD, 12));
-		GridBagConstraints gbc_lblLib = new GridBagConstraints();
-		gbc_lblLib.fill = GridBagConstraints.BOTH;
-		gbc_lblLib.insets = new Insets(0, 0, 5, 5);
-		gbc_lblLib.gridx = 0;
-		gbc_lblLib.gridy = 9;
-		add(lblLib, gbc_lblLib);
-		
-		txtISBN = new JTextField();
-		txtISBN.setName("txtIsbn");
-		txtISBN.setToolTipText("numero identificacion 13 digitos Ej 1234567890123");
-		txtISBN.setMinimumSize(new Dimension(45, 25));
-		txtISBN.setMaximumSize(new Dimension(125, 35));
-		txtISBN.setFont(new Font("Dialog", Font.BOLD, 11));
-		txtISBN.setColumns(10);
-		GridBagConstraints gbc_txtLib = new GridBagConstraints();
-		gbc_txtLib.insets = new Insets(0, 0, 5, 5);
-		gbc_txtLib.fill = GridBagConstraints.BOTH;
-		gbc_txtLib.gridx = 1;
-		gbc_txtLib.gridy = 9;
-		add(txtISBN, gbc_txtLib);
 		
 		JLabel lblUnidades = new JLabel("Unidades");
 		lblUnidades.setMaximumSize(new Dimension(125, 35));
@@ -175,31 +177,26 @@ public class PanelDatos extends JPanel{
 		gbc_lblUnidades.gridy = 11;
 		add(lblUnidades, gbc_lblUnidades);
 		
-		txtUnidades = new JTextField();
-		txtUnidades.setName("unidades");
-		txtUnidades.setText("1");
-		txtUnidades.setToolTipText("numero identificacion 13 digitos Ej 1234567890123");
-		txtUnidades.setMinimumSize(new Dimension(45, 25));
-		txtUnidades.setMaximumSize(new Dimension(125, 35));
-		txtUnidades.setFont(new Font("Dialog", Font.BOLD, 11));
-		txtUnidades.setColumns(10);
-		GridBagConstraints gbc_txtUnidades = new GridBagConstraints();
-		gbc_txtUnidades.insets = new Insets(0, 0, 5, 5);
-		gbc_txtUnidades.fill = GridBagConstraints.BOTH;
-		gbc_txtUnidades.gridx = 1;
-		gbc_txtUnidades.gridy = 11;
-		add(txtUnidades, gbc_txtUnidades);
+		spnUnidades = new JSpinner();
+		spnUnidades.setName("Unidades");
+		GridBagConstraints gbc_spnUnidades = new GridBagConstraints();
+		gbc_spnUnidades.fill = GridBagConstraints.HORIZONTAL;
+		gbc_spnUnidades.insets = new Insets(0, 0, 5, 5);
+		gbc_spnUnidades.gridx = 1;
+		gbc_spnUnidades.gridy = 11;
+		add(spnUnidades, gbc_spnUnidades);
+		spnUnidades.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
 	}
 
 	
 	//GETTERS AND SETTERS
 	
-	public JTextField getTxtISBN() {
-		return txtISBN;
-	}
-
 	public JTextField getTxtAutor() {
 		return txtAutor;
+	}
+
+	public JTextFieldIsbn getTxtISBN() {
+		return txtISBN;
 	}
 
 	public JTextField getTxtNumPaginas() {
@@ -214,8 +211,8 @@ public class PanelDatos extends JPanel{
 		return cmbTemas;
 	}
 
-	public JTextField getTxtUnidades() {
-		return txtUnidades;
+	public JSpinner getSpnUnidades() {
+		return spnUnidades;
 	}
 	
 }

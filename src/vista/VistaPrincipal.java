@@ -12,15 +12,17 @@ import java.awt.Dimension;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.SwingConstants;
 
 public class VistaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static final  String TITULOAPLICACION = "LIBRERÍA";
 	protected PanelBotones panelBotones;
-	protected panelChecks panelChecks;
+	protected PanelChecks panelChecks;
 	protected PanelDatos panelDatos;
 	protected JList<String> librosDisponibles;
+	protected JLabel lblMensajeError;
 	
 	public VistaPrincipal(){
 		try {
@@ -36,9 +38,9 @@ public class VistaPrincipal extends JFrame {
 		setBounds(100, 100, 590, 500);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 94, 75, 114, 22, 56, 91, 28};
-		gridBagLayout.rowHeights = new int[]{53, 28, 41, 55, 55, 55,55, 55, 55};
+		gridBagLayout.rowHeights = new int[]{53, 28, 41, 55, 55, 55, 35, 55, 55, 0};
 		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0};
-		gridBagLayout.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
+		gridBagLayout.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
 		getContentPane().setLayout(gridBagLayout);
 			JLabel lblTitulo = new JLabel(TITULOAPLICACION);
 			lblTitulo.setForeground(new Color(0, 0, 102));
@@ -64,7 +66,7 @@ public class VistaPrincipal extends JFrame {
 		gbcpanelDatos.gridy = 2;
 		getContentPane().add(panelDatos, gbcpanelDatos);
 		
-		panelChecks = new panelChecks();
+		panelChecks = new PanelChecks();
 		panelChecks.setBackground(new Color(255, 255, 255));
 		panelChecks.getPanelEstado().setBackground(new Color(255, 255, 255));
 		panelChecks.getPanelFormato().setBackground(new Color(255, 255, 255));
@@ -104,16 +106,28 @@ public class VistaPrincipal extends JFrame {
 		librosDisponibles.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
 		scrollPane.setViewportView(librosDisponibles);
 		
+		lblMensajeError = new JLabel("");
+		lblMensajeError.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblMensajeError.setForeground(Color.RED);
+		lblMensajeError.setHorizontalAlignment(SwingConstants.CENTER);
+		GridBagConstraints gbclblError = new GridBagConstraints();
+		gbclblError.gridwidth = 6;
+		gbclblError.fill = GridBagConstraints.BOTH;
+		gbclblError.insets = new Insets(0, 0, 5, 5);
+		gbclblError.gridx = 1;
+		gbclblError.gridy = 6;
+		getContentPane().add(lblMensajeError, gbclblError);
+		
 		panelBotones = new PanelBotones();
 		panelBotones.setMinimumSize(new Dimension(374, 152));
 		panelBotones.setBackground(new Color(255, 255, 255));
 		GridBagConstraints gbcpanelBotones = new GridBagConstraints();
 		gbcpanelBotones.fill = GridBagConstraints.BOTH;
 		gbcpanelBotones.gridwidth = 6;
-		gbcpanelBotones.insets = new Insets(0, 0, 0, 5);
+		gbcpanelBotones.insets = new Insets(0, 0, 5, 5);
 		gbcpanelBotones.gridx = 1;
-		gbcpanelBotones.gridheight = 3;
-		gbcpanelBotones.gridy = 6;
+		gbcpanelBotones.gridheight = 2;
+		gbcpanelBotones.gridy = 7;
 		getContentPane().add(panelBotones, gbcpanelBotones);	
 		
 	}		

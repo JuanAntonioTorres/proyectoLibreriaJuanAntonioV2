@@ -1,30 +1,32 @@
 package vista;
-import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
-
-import control.Validador;
+import control.ListenerAumentarUnidad;
 import modelo.Libro;
 
 public class LogicaGrafica{
-	private static final int LONGITUD_ISBN = 13;
-	private static final Color COLOR_ERROR = new Color(255, 240, 245);
 	private Puente vistaPrincipal;
-	private Validador validador = new Validador();
+	private Validador validador;
+	private int libroSeleccionado;
 
 	public LogicaGrafica(Puente vistaPrincipal) {
 		super();
 		this.vistaPrincipal = vistaPrincipal;
+		this.validador = new Validador(new GestorErrores(vistaPrincipal.lblMensajeError));
 	}
 	
+	public boolean comprobarTodos() {
+		return validador.comprobarTodos(this.vistaPrincipal);
+	}
+
 	/**
 	 * muestra los datos de un libro en los mismos campos
 	 * donde se introducen esos datos con los controles desactivados
@@ -60,15 +62,17 @@ public class LogicaGrafica{
 	 */
 	public Libro crearLibro(ArrayList<Libro> arrayList) {
 		PanelDatos panelDatos = vistaPrincipal.panelDatos;
-		String titulo = panelDatos .getTxtTitulo().getText();
-		String autor = panelDatos.getTxtAutor().getText();
-		String tema = (String) panelDatos.getCmbTemas().getSelectedItem();
-		int numPaginas = Integer.parseInt(panelDatos.getTxtNumPaginas().getText());
+		String datosLibro [] = new String[7];
+		datosLibro [0] = panelDatos .getTxtTitulo().getText();
+		datosLibro [1] = panelDatos.getTxtAutor().getText();
+		datosLibro [2] = (String) panelDatos.getCmbTemas().getSelectedItem();
+		datosLibro [3] = panelDatos.getTxtNumPaginas().getText();
 		String[] formato = obtenerFormatos();
-		String estado = obtenerEstados();
-		String isbn = panelDatos.getTxtISBN().getText();
-		if(validador.validarISBN(isbn,arrayList)) {
-			return new Libro(titulo, autor, tema, numPaginas, formato, estado , isbn);
+		datosLibro [4] = obtenerEstados();
+		datosLibro [5] = panelDatos.getTxtISBN().getText();
+		datosLibro [6] = panelDatos.getSpnUnidades().getValue().toString();
+		if(validador.validarISBN(datosLibro [5],arrayList)) {
+			return new Libro(datosLibro, formato);
 		}
 		else return null;
 	}
@@ -77,11 +81,11 @@ public class LogicaGrafica{
 	 * resetea todos los campos del formulario
 	 */
 	public void resetearInformacion() {
+		activarPanelesInformacion(true);
 		restablecerTextoBotones();
 		resetearPanelDatos();
 		ponerTodoPanelEstadoAFalse();
 		ponerTodoPanelFormatoAFalse();
-		activarPanelesInformacion(true);
 		activarBoton("Alta", false);
 	}
 	
@@ -98,17 +102,6 @@ public class LogicaGrafica{
 		}
 	}
 	
-	/**
-	 * comprueba que los datos del formulario son correctos
-	 * y que no hay opciones sin seleccionar y ningun campo 
-	 * de texto esta vacio
-	 * @return
-	 */
-	public boolean comprobarTodos() {
-		return validaDatos()&&
-				comprobarCajasVacias()&&
-				comprobarTextosVacios();
-	}
 	
 	/**
 	 * activa o desctiva los paneles de la vista principal
@@ -118,17 +111,9 @@ public class LogicaGrafica{
 		activarPanelTodos(activar,vistaPrincipal.panelChecks.getPanelEstado());
 		activarPanelTodos(activar,vistaPrincipal.panelChecks.getPanelFormato());
 		activarPanelTodos(activar,vistaPrincipal.panelDatos);
+		activarAumentarUnidades(true);
 	}
 
-
-	/**
-	 * muestra un mensaje en el texto del boton alta
-	 * @param string mensaje para mostrar en el boton
-	 */
-	public void mostrarMensaje(String string) {
-		vistaPrincipal.panelBotones.getBtnAlta().setText(string);
-		vistaPrincipal.panelBotones.getBtnAlta().setEnabled(false);
-	}
 
 	/**
 	 * restablece el texto de los botones que hay en panel botones 
@@ -136,10 +121,14 @@ public class LogicaGrafica{
 	 */
 	public void restablecerTextoBotones() {
 		for (int i = 0; i < vistaPrincipal.panelBotones.getComponentCount(); i++) {
-			((JButton)vistaPrincipal.panelBotones.getComponent(i)).setText(((JButton)vistaPrincipal.panelBotones.getComponent(i)).getName());
+			JButton botonTmp = (JButton)vistaPrincipal.panelBotones.getComponent(i);
+			botonTmp.setText(botonTmp.getName());
 		}
 	}
 	
+	public void activarAumentarUnidades(boolean activar) {
+		vistaPrincipal.panelDatos.getSpnUnidades().setEnabled(activar);
+	}
 	
 	//metodos privados
 	
@@ -148,7 +137,15 @@ public class LogicaGrafica{
 			if(vistaPrincipal.panelDatos.getComponent(i).getClass().equals(JComboBox.class)) {
 				((JComboBox<?>)vistaPrincipal.panelDatos.getComponent(i)).setSelectedIndex(0);
 			}
-			else if(vistaPrincipal.panelDatos.getComponent(i).getClass().equals(JTextField.class) )((JTextField)vistaPrincipal.panelDatos.getComponent(i)).setText("");
+			else if (vistaPrincipal.panelDatos.getComponent(i).getClass().equals(JSpinner.class)) {
+				((JSpinner)vistaPrincipal.panelDatos.getComponent(i)).getModel().setValue(0);
+			}
+			else if(vistaPrincipal.panelDatos.getComponent(i).getClass().equals(JTextField.class)) {
+				((JTextField)vistaPrincipal.panelDatos.getComponent(i)).setText("");
+			}
+			else if(vistaPrincipal.panelDatos.getComponent(i).getClass().equals(JTextFieldIsbn.class)) {
+				((JTextFieldIsbn)vistaPrincipal.panelDatos.getComponent(i)).setText("");
+			}
 		}
 		
 	}
@@ -158,7 +155,8 @@ public class LogicaGrafica{
 		vistaPrincipal.panelDatos.getTxtAutor().setText(libro.getAutor());
 		pintarComboBox(libro);
 		vistaPrincipal.panelDatos.getTxtNumPaginas().setText(String.valueOf(libro.getNumPaginas()));
-		vistaPrincipal.panelDatos.getTxtISBN().setText(String.valueOf(libro.getISBN()));
+		vistaPrincipal.panelDatos.getTxtISBN().setText(String.valueOf(libro.getIsbn()));
+		vistaPrincipal.panelDatos.getSpnUnidades().setValue(libro.getUnidades());
 	}
 
 	private void pintarComboBox(Libro libro) {
@@ -182,6 +180,11 @@ public class LogicaGrafica{
 		vistaPrincipal.panelChecks.getBotonGrupo().clearSelection();
 	}
 
+	
+	private void ponerTodoPanelFormatoAFalse() {
+		vistaPrincipal.panelChecks.getBotonGrupoDos().clearSelection();
+	}
+	
 	private void rellenarPanelFormato(Libro libro) {
 		ponerTodoPanelFormatoAFalse();
 		for (int i = 0; i < libro.getFormato().length; i++) {
@@ -193,12 +196,6 @@ public class LogicaGrafica{
 		}
 	}
 
-	private void ponerTodoPanelFormatoAFalse() {
-		for (int j = 0; j < vistaPrincipal.panelChecks.getPanelFormato().getComponentCount(); j++) {
-			((JCheckBox)vistaPrincipal.panelChecks.getPanelFormato().getComponent(j)).setSelected(false);
-		}
-	}
-	
 	private String obtenerEstados() {
 		String estado = null;
 		for (int i = 0; i < vistaPrincipal.panelChecks.getPanelEstado().getComponentCount(); i++) {
@@ -229,59 +226,10 @@ public class LogicaGrafica{
 		return retorno;
 	}
 
-	private boolean comprobarTextosVacios() {
-		for (int i = 0; i < vistaPrincipal.panelDatos.getComponentCount(); i++) {
-			if(vistaPrincipal.panelDatos.getComponent(i).getClass().equals(JTextField.class)
-					&& ((JTextField)vistaPrincipal.panelDatos.getComponent(i)).getText().isEmpty()) {
-				return false;
-			}
-		}
-		if(vistaPrincipal.panelDatos.getCmbTemas().getSelectedIndex()<1)return false;
-		return true;
-	}
-
-	private boolean comprobarCajasVacias() {
-		return ((obtenerEstados()!=null)&&(obtenerFormatos().length>0));
-	}
-
-	private boolean validaDatos() {
-		boolean datosCorrectos = true;
-		//valida el numero de paginas 
-		if(!validador.validarSoloNumeros(vistaPrincipal.panelDatos.getTxtNumPaginas().getText())) {
-			pintarError(vistaPrincipal.panelDatos.getTxtNumPaginas(),true);
-			datosCorrectos = false;			
-		}
-		else pintarError(vistaPrincipal.panelDatos.getTxtNumPaginas(),false);
-
-		//valida el isbn
-		if(!validador.validarLongitud (vistaPrincipal.panelDatos.getTxtISBN().getText(),LONGITUD_ISBN)||
-				!validador.validarSoloNumeros(vistaPrincipal.panelDatos.getTxtISBN().getText())) {
-				datosCorrectos = false;
-				 if(vistaPrincipal.panelDatos.getTxtISBN().getText().length()>0&&
-						 vistaPrincipal.panelDatos.getTxtISBN().getText().length()!=LONGITUD_ISBN){
-					 pintarError(vistaPrincipal.panelDatos.getTxtISBN(),true);
-				 }
-				 else pintarError(vistaPrincipal.panelDatos.getTxtISBN(),false);
-		}	
-		else {
-			pintarError(vistaPrincipal.panelDatos.getTxtISBN(),false);
-		}
-		return datosCorrectos;
-	}
-	
-	private void pintarError(JTextField jTextField,boolean error) {
-		if(error)jTextField.setBackground(COLOR_ERROR);
-		else jTextField.setBackground(Color.white);
-	}
-
 	private void activarPanelTodos(boolean activar,JPanel panel) {
 		for (int i = 0; i < panel.getComponentCount(); i++) {
 			panel.getComponent(i).setEnabled(activar);
 		}
-	}
-
-	public int getLibroSeleccionado() {
-		return vistaPrincipal.librosDisponibles.getSelectedIndex();
 	}
 
 	public void cambiarListenerBoton(String nameBoton,ActionListener listener) {
@@ -295,7 +243,9 @@ public class LogicaGrafica{
 	}
 
 	private void removerListener(JButton boton) {
-		boton.removeActionListener(((ActionListener)boton.getActionListeners()[0]));
+		for (int i = 0; i < boton.getActionListeners().length; i++) {
+			boton.removeActionListener(boton.getActionListeners()[i]);
+		}
 	}
 
 	public void cambiarTextoBoton(String nameBoton, String texto) {
@@ -306,6 +256,53 @@ public class LogicaGrafica{
 			}
 		}
 	}
+
+	public void ponerListenerEnAumentarUnidades(ListenerAumentarUnidad listener,boolean poner) {
+		JSpinner spinner = vistaPrincipal.panelDatos.getSpnUnidades();
+		removerListenerUnidades(spinner);
+		if(poner){
+			spinner.addChangeListener(listener);
+		}
+	}
+
+	private void removerListenerUnidades(JSpinner spinner) {
+		for (int i = 0; i < spinner.getChangeListeners().length; i++) {
+			if(spinner.getChangeListeners()[i].getClass().equals(ListenerAumentarUnidad.class)) {
+				spinner.removeChangeListener(spinner.getChangeListeners()[i]);
+			}
+		}
+	}
+
+	public void resetearMensajeError() {
+		this.vistaPrincipal.lblMensajeError.setText("");
+	}
 	
+	public void mostrarMensajeError(String mensaje, boolean error) {
+		this.validador.mostrarMensajeError(mensaje,error);
+	}
+	
+	public void actualizarLibroActual() {
+		this.libroSeleccionado = vistaPrincipal.librosDisponibles.getSelectedIndex();
+	}
+
+	public int getPosicionLibroActual() {
+		return this.libroSeleccionado;
+	}
+
+	public void comprobarSIActivarAlta() {
+		resetearMensajeError();
+		if(comprobarTodos())activarBoton("Alta", true);
+		else activarBoton("Alta", false);
+	}
+
+	public void activarIsbn(boolean activar) {
+		vistaPrincipal.panelDatos.getTxtISBN().setEnabled(activar);
+	}
+
+	public void borrarTodoMenosIsbn() {
+		String isbn = vistaPrincipal.panelDatos.getTxtISBN().getText();
+		resetearInformacion();
+		this.vistaPrincipal.panelDatos.getTxtISBN().setText(isbn);
+	}
 	
 }

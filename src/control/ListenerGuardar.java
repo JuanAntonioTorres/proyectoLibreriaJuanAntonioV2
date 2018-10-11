@@ -20,29 +20,37 @@ public class ListenerGuardar implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		logicaGrafica.resetearMensajeError();
 		Libro libroOriginal = obtenerLibroSeleccionado();
 		sacarLibroDeLibros();
 		Libro libroModificado = obtenerLibroModificado();
 		
-		if(!modificarLibro(libroOriginal, libroModificado)) {
+		if(libroModificado==null || !modificarLibro(libroOriginal, libroModificado)) {
 			reestablecerLibroOriginal(libroOriginal);
+			logicaGrafica.mostrarMensajeError("modificación no valida",true);
 		}
-		logicaGrafica.resetearInformacion();
-		logicaGrafica.pintarLista(logica.getLibros());
-		logicaGrafica.cambiarListenerBoton("Alta", new ListenerBotonAlta(logica, logicaGrafica));
-		logicaGrafica.restablecerTextoBotones();
+		else {
+			logicaGrafica.resetearInformacion();
+			logicaGrafica.pintarLista(logica.getLibros());
+			logicaGrafica.cambiarListenerBoton("Alta", new ListenerBotonAlta(logica, logicaGrafica));
+			logicaGrafica.restablecerTextoBotones();
+			logicaGrafica.mostrarMensajeError("libro modificado", false);
+		}
+		
+		
+		
 	}
 
 
 
 	private void reestablecerLibroOriginal(Libro libroOriginal) {
-		logica.getLibros().add(logicaGrafica.getLibroSeleccionado(), libroOriginal);
+		logica.getLibros().add(logicaGrafica.getPosicionLibroActual(), libroOriginal);
 	}
 
 
 
 	private boolean modificarLibro(Libro original,Libro libroModificado) {
-		return logica.modificarLibro(original,libroModificado,logicaGrafica.getLibroSeleccionado());
+		return logica.modificarLibro(original,libroModificado,logicaGrafica.getPosicionLibroActual());
 	}
 
 
@@ -54,13 +62,13 @@ public class ListenerGuardar implements ActionListener{
 
 
 	private void sacarLibroDeLibros() {
-		logica.getLibros().remove(logicaGrafica.getLibroSeleccionado());
+		logica.getLibros().remove(logicaGrafica.getPosicionLibroActual());
 	}
 
 
 
 	private Libro obtenerLibroSeleccionado() {
-		return logica.getLibros().get(logicaGrafica.getLibroSeleccionado());
+		return logica.getLibros().get(logicaGrafica.getPosicionLibroActual());
 	}
 
 }

@@ -17,8 +17,9 @@ public class ListenerBotonNuevo implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent botonPulsado) {
+		logicaGrafica.ponerListenerEnAumentarUnidades(null, false);
+		logicaGrafica.resetearMensajeError();
 		logicaGrafica.resetearInformacion();
-		logicaGrafica.restablecerTextoBotones();
 		logicaGrafica.cambiarListenerBoton("Alta", new ListenerBotonAlta(logica, logicaGrafica));
 	}
 }

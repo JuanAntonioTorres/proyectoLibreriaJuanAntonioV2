@@ -3,21 +3,21 @@ package vista;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
 import control.ListenerBotonAlta;
 import control.ListenerBotonBaja;
 import control.ListenerBotonNuevo;
 import control.ListenerCompruebaAlta;
+import control.ListenerISBN;
 import control.Logica;
 import control.MouseListenerLista;
+import java.awt.Dimension;
 
 public class Puente extends VistaPrincipal {
 	private static final long serialVersionUID = 1L;
 	
 	public Puente() {
 		super();
+		getContentPane().setMinimumSize(new Dimension(588, 650));
 		asignarListeners();
 	}
 
@@ -26,7 +26,7 @@ public class Puente extends VistaPrincipal {
 		LogicaGrafica logicaGrafica = new LogicaGrafica(this);
 		ponerListenerEnBotones(logica,logicaGrafica);
 		ponerMouseListenerEnListaLibro(logica,logicaGrafica);
-		ponerListenerEnTextFields(logicaGrafica);
+		ponerListenerEnTextFields(logicaGrafica,logica);
 		ponerListenerEnChecks(logicaGrafica);
 	}
 
@@ -45,10 +45,13 @@ public class Puente extends VistaPrincipal {
 		this.panelBotones.getBtnBaja().addActionListener(new ListenerBotonBaja(logica, logicaGrafica));
 	}
 
-	private void ponerListenerEnTextFields(LogicaGrafica logicaGrafica) {
+	private void ponerListenerEnTextFields(LogicaGrafica logicaGrafica,Logica logica) {
 		for (int i = 0; i < panelDatos.getComponentCount(); i++) {
 			if(panelDatos.getComponent(i).getClass().equals(JTextField.class)) {
 				((JTextField)panelDatos.getComponent(i)).addKeyListener(new ListenerCompruebaAlta(logicaGrafica));
+			}
+			else if(panelDatos.getComponent(i).getClass().equals(JTextFieldIsbn.class)) {
+				((JTextFieldIsbn)panelDatos.getComponent(i)).addKeyListener(new ListenerISBN(logica,logicaGrafica));
 			}
 		}
 	}

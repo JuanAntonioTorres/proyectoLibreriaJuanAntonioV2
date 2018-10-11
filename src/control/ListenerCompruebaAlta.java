@@ -18,24 +18,22 @@ public class ListenerCompruebaAlta implements ActionListener,KeyListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		logicaGragica.comprobarTodos();
-		comprobarSIActivarAlta();
+		logicaGragica.comprobarSIActivarAlta();
 	}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		logicaGragica.comprobarTodos();
-		comprobarSIActivarAlta();
-	}
-
-	private void comprobarSIActivarAlta() {
-		if(logicaGragica.comprobarTodos())logicaGragica.activarBoton("Alta", true);
-		else logicaGragica.activarBoton("Alta", false);
+		logicaGragica.comprobarSIActivarAlta();
 	}
 	
-	
 	@Override
-	public void keyPressed(KeyEvent arg0){}
+	public void keyPressed(KeyEvent arg0){
+		//para que sonarLint este contento
+	}
 	@Override
-	public void keyTyped(KeyEvent arg0) {}
+	public void keyTyped(KeyEvent arg0) {
+		//para que sonarLint este contento
+	}
 	
 }

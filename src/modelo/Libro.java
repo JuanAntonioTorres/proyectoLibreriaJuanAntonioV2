@@ -2,8 +2,6 @@ package modelo;
 import java.util.Arrays;
 
 public class Libro {
-	
-	//Propiedades
 	private String titulo;
 	private String autor;
 	private String tema;
@@ -11,18 +9,18 @@ public class Libro {
 	private String isbn;
 	private String[] formato=new String[3];
 	private String estado;
-
+	private int unidades;
 	
-	public Libro(String titulo, String autor, String tema, int numPaginas,
-			String[] formato, String estado, String nib) {
+	public Libro(String[]datos,String[] formato) {
 		super();
-		this.titulo = titulo;
-		this.autor = autor;
-		this.tema = tema;
-		this.numPaginas = numPaginas;
+		this.titulo = datos[0];
+		this.autor =datos[1];
+		this.tema = datos[2];
+		this.numPaginas = Integer.parseInt(datos[3]);
 		this.formato = formato;
-		this.estado = estado;
-		this.isbn = nib;
+		this.estado = datos[4];
+		this.isbn = datos[5];
+		this.unidades = Integer.parseInt(datos[6]);
 	}
 
 	public boolean esIgualQue(Libro libro) {
@@ -32,10 +30,17 @@ public class Libro {
 		if(this.numPaginas==libro.getNumPaginas())return false;
 		if(this.tema.equals(libro.getTema()))return false;
 		if(this.titulo.equals(libro.getTitulo()))return false;
-		return true;
+		return (this.unidades==libro.getUnidades());
+	}
+
+	public String getIsbn() {
+		return isbn;
 	}
 	
-	//GETTERS
+	public int getUnidades() {
+		return unidades;
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
@@ -53,9 +58,6 @@ public class Libro {
 	}
 	public String getEstado() {
 		return estado;
-	}
-	public String getISBN() {
-		return isbn;
 	}
 
 	public void setIsbn(String isbn) {

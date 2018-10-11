@@ -15,12 +15,13 @@ import javax.swing.JRadioButton;
 import java.awt.GridLayout;
 import java.awt.Dimension;
 
-public class panelChecks extends JPanel{
+public class PanelChecks extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JPanel panelFormato;
 	private JPanel panelEstado;
+	private ButtonGroup botonGrupoDos;
 	private ButtonGroup botonGrupo;
-	public panelChecks() {
+	public PanelChecks() {
 		setBackground(new Color(255, 255, 255));
 		setPreferredSize(new Dimension(150, 450));
 		setMinimumSize(new Dimension(150, 300));
@@ -43,26 +44,29 @@ public class panelChecks extends JPanel{
 		add(panelFormato, gbc_panelFormato);
 		panelFormato.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JCheckBox checkBox = new JCheckBox("Cartone");
-		checkBox.setPreferredSize(new Dimension(122, 33));
-		checkBox.setMaximumSize(new Dimension(122, 90));
-		checkBox.setBackground(new Color(255, 255, 255));
-		checkBox.setFont(new Font("Dialog", Font.BOLD, 14));
-		panelFormato.add(checkBox);
+		JCheckBox chckbxCarton = new JCheckBox("Carton\u00E9");
+		chckbxCarton.setName("cartone");
+		chckbxCarton.setPreferredSize(new Dimension(122, 33));
+		chckbxCarton.setMaximumSize(new Dimension(122, 90));
+		chckbxCarton.setBackground(new Color(255, 255, 255));
+		chckbxCarton.setFont(new Font("Dialog", Font.BOLD, 14));
+		panelFormato.add(chckbxCarton);
 		
-		JCheckBox checkBox_1 = new JCheckBox("Rustica");
-		checkBox_1.setPreferredSize(new Dimension(122, 33));
-		checkBox_1.setMaximumSize(new Dimension(122, 90));
-		checkBox_1.setBackground(new Color(255, 255, 255));
-		checkBox_1.setFont(new Font("Dialog", Font.BOLD, 14));
-		panelFormato.add(checkBox_1);
+		JCheckBox chckbxRstica = new JCheckBox("R\u00FAstica");
+		chckbxRstica.setName("rustica");
+		chckbxRstica.setPreferredSize(new Dimension(122, 33));
+		chckbxRstica.setMaximumSize(new Dimension(122, 90));
+		chckbxRstica.setBackground(new Color(255, 255, 255));
+		chckbxRstica.setFont(new Font("Dialog", Font.BOLD, 14));
+		panelFormato.add(chckbxRstica);
 		
-		JCheckBox checkBox_2 = new JCheckBox("Tapa Dura");
-		checkBox_2.setPreferredSize(new Dimension(122, 33));
-		checkBox_2.setMaximumSize(new Dimension(122, 90));
-		checkBox_2.setBackground(new Color(255, 255, 255));
-		checkBox_2.setFont(new Font("Dialog", Font.BOLD, 14));
-		panelFormato.add(checkBox_2);
+		JCheckBox tapaDura = new JCheckBox("Tapa Dura");
+		tapaDura.setName("tapaDura");
+		tapaDura.setPreferredSize(new Dimension(122, 33));
+		tapaDura.setMaximumSize(new Dimension(122, 90));
+		tapaDura.setBackground(new Color(255, 255, 255));
+		tapaDura.setFont(new Font("Dialog", Font.BOLD, 14));
+		panelFormato.add(tapaDura);
 		
 		panelEstado = new JPanel();
 		panelEstado.setPreferredSize(new Dimension(122, 222));
@@ -92,13 +96,26 @@ public class panelChecks extends JPanel{
 		botonGrupo = new ButtonGroup();
 		botonGrupo.add(radioButton);
 		botonGrupo.add(radioButton_1);
+		
+		botonGrupoDos = new ButtonGroup();
+		botonGrupoDos.add(chckbxCarton);
+		botonGrupoDos.add(chckbxRstica);
+		botonGrupoDos.add(tapaDura);
 	}
 	
 	
 	
+	public ButtonGroup getBotonGrupoDos() {
+		return botonGrupoDos;
+	}
+
+
+
 	public ButtonGroup getBotonGrupo() {
 		return botonGrupo;
 	}
+
+
 
 	public JPanel getPanelFormato() {
 		return panelFormato;

@@ -1,296 +1,388 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="Libro" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/Libro.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="100" width="266" x="-36" y="223"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
-      <operations public="true" package="true" protected="true" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="Logica" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/Logica.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="431" y="271"/>    
+  <class id="1" language="java" name="modelo.Libro" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/modelo/Libro.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="122" y="442"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="ListenerBotonAlta" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/ListenerBotonAlta.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="232" x="775" y="-202"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
-      <operations public="true" package="true" protected="true" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="ListenerBotonBaja" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/ListenerBotonBaja.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="228" x="777" y="-55"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
-      <operations public="true" package="true" protected="true" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="ListenerBotonModificar" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/ListenerBotonModificar.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="229" x="772" y="108"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
-      <operations public="true" package="true" protected="true" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="ListenerBotonNuevo" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/ListenerBotonNuevo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="103" width="228" x="779" y="473"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
-      <operations public="true" package="true" protected="true" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="ListenerCompruebaAlta" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/ListenerCompruebaAlta.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="119" width="229" x="779" y="608"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
-      <operations public="true" package="true" protected="true" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="ListenerGuardar" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/ListenerGuardar.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="236" x="770" y="228"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
-      <operations public="true" package="true" protected="true" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="MouseListenerLista" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/MouseListenerLista.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="100" width="231" x="776" y="343"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
-      <operations public="true" package="true" protected="true" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="LogicaGrafica" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/LogicaGrafica.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="306" width="263" x="1206" y="136"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
-      <operations public="true" package="true" protected="true" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="11" language="java" name="Puente" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/Puente.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1674" y="287"/>    
+  <class id="2" language="java" name="control.Logica" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/control/Logica.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="450" y="442"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="VistaPrincipal" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/VistaPrincipal.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1941" y="290"/>    
+  <class id="3" language="java" name="control.ListenerGuardar" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/control/ListenerGuardar.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="988" y="1118"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="PanelBotones" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/PanelBotones.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="192" x="2165" y="404"/>    
+  <class id="4" language="java" name="control.ListenerISBN" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/control/ListenerISBN.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="235" x="876" y="-155"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="panelChecks" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/panelChecks.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="195" x="2160" y="222"/>    
+  <class id="5" language="java" name="control.ListenerBotonBaja" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/control/ListenerBotonBaja.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="239" x="873" y="11"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="PanelDatos" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/PanelDatos.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="172" width="201" x="2161" y="20"/>    
+  <class id="6" language="java" name="control.ListenerBotonNuevo" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/control/ListenerBotonNuevo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="241" x="868" y="167"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="Validador" project="proyectoLibreriaJuanAntonioV2" 
-    file="/proyectoLibreriaJuanAntonioV2/src/Validador.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1340" y="604"/>    
+  <class id="7" language="java" name="control.ListenerCompruebaAlta" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/control/ListenerCompruebaAlta.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="229" x="874" y="-339"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="control.ListenerBotonAlta" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/control/ListenerBotonAlta.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="241" x="867" y="325"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="control.ListenerBotonModificar" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/control/ListenerBotonModificar.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="232" x="871" y="856"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="control.ListenerAumentarUnidad" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/control/ListenerAumentarUnidad.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="242" x="865" y="476"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="control.MouseListenerLista" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/control/MouseListenerLista.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="988" y="700"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <association id="17">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="18" name="logica"/>      
-      <multiplicity id="19" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="20">    
+  <class id="12" language="java" name="vista.LogicaGrafica" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/vista/LogicaGrafica.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="423" width="260" x="1532" y="261"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="vista.Puente" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/vista/Puente.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1942" y="468"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="vista.Validador" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/vista/Validador.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1664" y="866"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="vista.GestorErrores" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/vista/GestorErrores.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1664" y="1132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="vista.VistaPrincipal" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/vista/VistaPrincipal.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2188" y="472"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="vista.PanelDatos" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/vista/PanelDatos.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2526" y="186"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="vista.PanelChecks" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/vista/PanelChecks.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2538" y="470"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="vista.PanelBotones" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/vista/PanelBotones.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="171" x="2463" y="651"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="vista.JTextFieldIsbn" project="proyectoLibreriaJuanAntonioV2" 
+    file="/proyectoLibreriaJuanAntonioV2/src/vista/JTextFieldIsbn.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2792" y="-78"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <association id="21">    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="21" name="panelBotones"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="23">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="24" name="logicaGrafica"/>      
-      <multiplicity id="25" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="26">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="27" name="logica"/>      
-      <multiplicity id="28" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="29">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="30" name="libros"/>      
-      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="32">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="33" name="logicaGrafica"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="35">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="36" name="panelChecks"/>      
-      <multiplicity id="37" minimum="0" maximum="1"/>    
+      <attribute id="22" name="validador"/>      
+      <multiplicity id="23" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="38">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="39" name="logicaGragica"/>      
-      <multiplicity id="40" minimum="0" maximum="1"/>    
+  <association id="24">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="25" name="panelDatos"/>      
+      <multiplicity id="26" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="41">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="42" name="logica"/>      
-      <multiplicity id="43" minimum="0" maximum="1"/>    
+  <association id="27">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="28" name="libros"/>      
+      <multiplicity id="29" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="30">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="31" name="logica"/>      
+      <multiplicity id="32" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="44">    
+  <association id="33">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="45" name="logicaGrafica"/>      
-      <multiplicity id="46" minimum="0" maximum="1"/>    
+      <attribute id="34" name="logicaGrafica"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="47">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="48" name="logicaGrafica"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="50">    
+  <association id="36">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="51" name="vistaPrincipal"/>      
-      <multiplicity id="52" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="53">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="54" name="panelDatos"/>      
-      <multiplicity id="55" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="56">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="57" name="logicaGrafica"/>      
-      <multiplicity id="58" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="59">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="60" name="logica"/>      
-      <multiplicity id="61" minimum="0" maximum="1"/>    
+      <attribute id="37" name="logica"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="62">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <association id="63">    
+  <association id="39">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="40" name="logica"/>      
+      <multiplicity id="41" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="42">    
     <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="43" name="logicaGrafica"/>      
+      <multiplicity id="44" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="45">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="46" name="vistaPrincipal"/>      
+      <multiplicity id="47" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="49" name="logica"/>      
+      <multiplicity id="50" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="51">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="52" name="logicaGragica"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="55" name="logicaGrafica"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="58" name="panelChecks"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="60">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="61" name="logica"/>      
+      <multiplicity id="62" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="63">    
+    <end type="SOURCE" refId="5" navigable="false">      
       <attribute id="64" name="logicaGrafica"/>      
       <multiplicity id="65" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="66">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="67" name="validador"/>      
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="67" name="logica"/>      
       <multiplicity id="68" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="69">    
-    <end type="SOURCE" refId="3" navigable="false">      
+    <end type="SOURCE" refId="9" navigable="false">      
       <attribute id="70" name="logica"/>      
       <multiplicity id="71" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="72">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="73" name="panelBotones"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="75">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="76">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="77" name="logicaGrafica"/>      
+      <multiplicity id="78" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="79">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="80" name="logicaGrafica"/>      
+      <multiplicity id="81" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="82">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="83" name="logicaGrafica"/>      
+      <multiplicity id="84" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="86" name="txtISBN"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="88">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="89" name="logicaGrafica"/>      
+      <multiplicity id="90" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="91">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="92" name="logica"/>      
+      <multiplicity id="93" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="94">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="95" name="gestorErrores"/>      
+      <multiplicity id="96" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
